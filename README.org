@@ -1,16 +1,10 @@
 #+STARTUP: showall
 #+TITLE: Tecgraf libraries (IUP, CD and IM) as Common Lisp ASDF System
 
-This system includes a shell script, ~update.sh~ which downloads the
-Tecgraf shared libraries for Windows and Linux and places them in
-subdirectory ~libs/~. See also
+Loading this system downloads the Tecgraf shared libraries for Windows
+and Linux and places them in subdirectory ~libs/~. See also
 https://www.tecgraf.puc-rio.br/iup/en/download_tips.html
 
- - The shared libraries are then included in this repository.
+- On Windows it sets ~PATH~ to include the ~libs/~ directory. 
 
- - The location of the shared libraries can be referenced from
-   ~(asdf:system-relative-pathname "tecgraf-libs" "libs/")~.
-
- - On Linux, ~patchelf~ is used set the shared library rpath to
-   ~$ORIGIN~ so that the interdependencies between the Tecgraf shared
-   libraries can be found relative to each other.
+- On Linux it sets ~LD_LIBRARY_PATH~ to include the ~libs/~ directory.
